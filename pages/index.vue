@@ -1,5 +1,5 @@
 <template lang="pug">
-table-component(:data="beers" sort-by="style" tableClass="table table-striped table-sm" countLabel="beer")
+table-component(:data="beers" sort-by="style" tableClass="table table-striped table-sm" countLabel="beer" filterNoResults="")
   table-column(show="title" label="Name")
   table-column(show="origin" label="City")
   table-column(show="style" label="Style")
