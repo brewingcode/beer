@@ -40,4 +40,6 @@ export default
   content: "↑"
 .table-component__th--sort-desc::after
   content: "↓"
+.table-component__filter__clear
+  cursor: pointer
 </style>
