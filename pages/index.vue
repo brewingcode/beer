@@ -1,6 +1,7 @@
 <template lang="pug">
 table-component(:data="beers" sort-by="style" tableClass="table table-striped table-sm")
   table-column(show="title" label="Name")
+  table-column(show="origin" label="City")
   table-column(show="style" label="Style")
   table-column(show="abv" label="ABV" v-bind:formatter="formatABV" data-type="numeric")
 </template>
