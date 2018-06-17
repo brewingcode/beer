@@ -1,21 +1,17 @@
 <template lang="pug">
-table.table.table-striped
-  thead: tr
-    th Name
-    th Style
-    th ABV
-  tbody
-    tr.beer(v-for="beer in beers")
-      td {{beer.title}}
-      td {{beer.style}}
-      td {{beer.abv}}
+table-component(:data="beers" sort-by="style" tableClass="table table-striped table-sm")
+  table-column(show="title" label="Name")
+  table-column(show="style" label="Style")
+  table-column(show="abv" label="ABV")
 </template>
 
 <script lang="coffee">
 import axios from 'axios'
 import cheerio from 'cheerio'
+import { TableComponent, TableColumn } from 'vue-table-component'
 
 export default
+  components: { TableComponent, TableColumn }
   asyncData: ->
     axios.get 'https://www.brewingcode.net/yardhouse.php?'
       .then (res) ->

@@ -34,6 +34,9 @@ module.exports = {
         //   exclude: /(node_modules)/
         // })
       }
+
+      // set this to get `yarnk link` working
+      config.resolve.symlinks = false;
     }
-  }
+  },
 }
