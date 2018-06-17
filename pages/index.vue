@@ -31,3 +31,14 @@ export default
   methods:
     formatABV: (v) -> if v is null then 'Varies' else v.toFixed(1) + ' %'
 </script>
+
+<style lang="stylus">
+.table-component__th
+  cursor: pointer
+  .table-component__th--sort
+    // none
+  .table-component__th--sort-asc
+    // none
+  .table-component__th--sort-desc
+    // none
+</style>
