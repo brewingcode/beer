@@ -29,6 +29,5 @@ export default
         console.error 'error getting live view of beer list'
         beers: []
   methods:
-    formatABV: (v) -> if isNaN(v) then 'Varies' else v.toFixed(1) + ' %'
-
+    formatABV: (v) -> if v is null then 'Varies' else v.toFixed(1) + ' %'
 </script>
