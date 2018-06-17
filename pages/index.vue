@@ -35,10 +35,8 @@ export default
 <style lang="stylus">
 .table-component__th
   cursor: pointer
-  .table-component__th--sort
-    // none
-  .table-component__th--sort-asc
-    // none
-  .table-component__th--sort-desc
-    // none
+.table-component__th--sort-asc::after
+  content: "↑"
+.table-component__th--sort-desc::after
+  content: "↓"
 </style>
