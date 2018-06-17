@@ -1,6 +1,14 @@
 <template lang="pug">
-  div(style="width:100%")
-    pre(v-for="beer in beers") {{JSON.stringify(beer, null, '  ')}}
+table.table.table-striped
+  thead: tr
+    th Name
+    th Style
+    th ABV
+  tbody
+    tr.beer(v-for="beer in beers")
+      td {{beer.title}}
+      td {{beer.style}}
+      td {{beer.abv}}
 </template>
 
 <script lang="coffee">

@@ -10,7 +10,8 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'A better listing of Yard House beers' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css' }
     ]
   },
   /*
