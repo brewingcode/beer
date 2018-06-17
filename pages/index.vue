@@ -2,7 +2,7 @@
 table-component(:data="beers" sort-by="style" tableClass="table table-striped table-sm")
   table-column(show="title" label="Name")
   table-column(show="style" label="Style")
-  table-column(show="abv" label="ABV")
+  table-column(show="abv" label="ABV" v-bind:formatter="formatABV" data-type="numeric")
 </template>
 
 <script lang="coffee">
@@ -20,7 +20,7 @@ export default
           title: $('.beerlink', this).text()
           tags: $('.beer_icons img', this).map(-> $(this).attr('alt')).get()
           style: $('.beer-style', this).text()
-          abv: $('.beer-abv', this).text().replace(/^ABV\s+/, '')
+          abv: parseFloat $('.beer-abv', this).text().replace(/^ABV\s+/, '').replace(/[%\s]/g, '')
           origin: $('.beer-origin', this).text()
         .get()
         .filter (b) -> b.title
@@ -28,4 +28,7 @@ export default
       .catch (err) ->
         console.error 'error getting live view of beer list'
         beers: []
+  methods:
+    formatABV: (v) -> if isNaN(v) then 'Varies' else v.toFixed(1) + ' %'
+
 </script>
