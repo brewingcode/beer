@@ -22,14 +22,9 @@
   </section>
 </template>
 
-<script>
+<script lang="coffee">
 import AppLogo from '~/components/AppLogo.vue'
-
-export default {
-  components: {
-    AppLogo
-  }
-}
+export default components: { AppLogo }
 </script>
 
 <style>
