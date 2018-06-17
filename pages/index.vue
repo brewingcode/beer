@@ -16,7 +16,7 @@ export default
           title: $('.beerlink', this).text()
           tags: $('.beer_icons img', this).map(-> $(this).attr('alt')).get()
           style: $('.beer-style', this).text()
-          abv: $('.beer-abv', this).text()
+          abv: $('.beer-abv', this).text().replace(/^ABV\s+/, '')
           origin: $('.beer-origin', this).text()
         .get()
         .filter (b) -> b.title
