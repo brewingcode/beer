@@ -3,7 +3,7 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'yardhouse',
+    title: 'Yard House',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -38,5 +38,8 @@ module.exports = {
       // set this to get `yarnk link` working
       config.resolve.symlinks = false;
     }
+  },
+  router: {
+    base: '/yard/'
   },
 }
