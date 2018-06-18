@@ -37,7 +37,7 @@ export default
         console.error 'error getting live view of beer list'
 
   methods:
-    formatABV: (v) -> if v is null then 'Varies' else v.toFixed(1) + ' %'
+    formatABV: (v) -> if (v is null or isNaN(v)) then 'Varies' else v.toFixed(1) + ' %'
 </script>
 
 <style lang="stylus">
