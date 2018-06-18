@@ -14,7 +14,7 @@ import { TableComponent, TableColumn } from 'vue-table-component'
 export default
   components: { TableComponent, TableColumn }
   asyncData: ->
-    axios.get 'https://www.brewingcode.net/yardhouse.php?'
+    axios.get 'https://www.brewingcode.net/yardhouse.php?1'
       .then (res) ->
         $ = cheerio.load(res.data)
         beers: $('.menu_item').map ->
