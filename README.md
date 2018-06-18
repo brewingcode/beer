@@ -7,18 +7,27 @@ https://brewingcode.github.io/yardhouse/
 ## Build Setup
 
 ``` bash
-# install dependencies
-$ npm install # Or yarn install
+# initial setup
+git clone https://github.com/brewingcode/vue-table-component
+cd vue-table-component
+yarn && yarn build && yarn link # tests fail, it's ok
+cd ..
+git clone https://github.com/brewingcode/yardhouse
+cd yardhouse
+yarn && yarn link vue-table-component && yarn dev
 
 # serve with hot reload at localhost:3000
-$ npm run dev
+yarn dev
 
 # build for production and launch server
-$ npm run build
-$ npm start
+yarn build
+yarn start
 
 # generate static project
-$ npm run generate
+yarn generate
+
+# generate static project at non-root url
+ROUTER_BASE=/some/other/url/ yarn generate
 ```
 
 For detailed explanation on how things work, checkout the [Nuxt.js docs](https://github.com/nuxt/nuxt.js).
