@@ -13,11 +13,15 @@ import { TableComponent, TableColumn } from 'vue-table-component'
 
 export default
   components: { TableComponent, TableColumn }
-  asyncData: ->
+
+  data: ->
+    beers: []
+
+  created: ->
     axios.get 'https://www.brewingcode.net/yardhouse.php?1'
-      .then (res) ->
+      .then (res) =>
         $ = cheerio.load(res.data)
-        beers: $('.menu_item').map ->
+        @beers = $('.menu_item').map ->
           title: $('.beerlink', this).text()
           tags: $('.beer_icons img', this).map(-> $(this).attr('alt')).get()
           style: $('.beer-style', this).text()
@@ -28,7 +32,7 @@ export default
 
       .catch (err) ->
         console.error 'error getting live view of beer list'
-        beers: []
+
   methods:
     formatABV: (v) -> if v is null then 'Varies' else v.toFixed(1) + ' %'
 </script>
