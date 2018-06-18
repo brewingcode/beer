@@ -11,7 +11,7 @@
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint",
-    "generate:gh": "ROUTER_BASE=/yardhouse/ npm run generate"
+    "generate:gh": "ROUTER_BASE=/yardhouse/ npm run generate && git checkout gh-pages && rsync -a dist/ ."
   },
   "dependencies": {
     "nuxt": "^1.0.0"
