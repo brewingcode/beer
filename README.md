@@ -2,6 +2,8 @@
 
 > A better listing of Yard House beers
 
+https://brewingcode.github.io/yardhouse/
+
 ## Build Setup
 
 ``` bash

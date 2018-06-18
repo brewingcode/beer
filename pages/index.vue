@@ -1,9 +1,12 @@
 <template lang="pug">
-table-component(:data="beers" sort-by="style" tableClass="table table-striped table-sm" countLabel="beer" filterNoResults="")
-  table-column(show="title" label="Name")
-  table-column(show="origin" label="City")
-  table-column(show="style" label="Style")
-  table-column(show="abv" label="ABV" v-bind:formatter="formatABV" data-type="numeric")
+div
+  table-component(:data="beers" sort-by="style" tableClass="table table-striped table-sm" countLabel="beer" filterNoResults="")
+    table-column(show="title" label="Name")
+    table-column(show="origin" label="City")
+    table-column(show="style" label="Style")
+    table-column(show="abv" label="ABV" v-bind:formatter="formatABV" data-type="numeric")
+  footer
+    a(href="https://github.com/brewingcode/yardhouse") github.com
 </template>
 
 <script lang="coffee">
