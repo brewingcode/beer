@@ -1,3 +1,12 @@
+const routerBase = (function() {
+  if (process.env.ROUTER_BASE) {
+    return { router: { base: process.env.ROUTER_BASE } };
+  }
+  else {
+    return {};
+  };
+})();
+
 module.exports = {
   /*
   ** Headers of the page
@@ -39,7 +48,5 @@ module.exports = {
       config.resolve.symlinks = false;
     }
   },
-  router: {
-    base: '/yard/'
-  },
+  ...routerBase,
 }
