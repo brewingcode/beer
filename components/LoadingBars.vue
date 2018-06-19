@@ -27,5 +27,5 @@
   display: inline-block
 
 svg path, svg rect
-  fill: #FF6700
+  fill: #007bff
 </style>
