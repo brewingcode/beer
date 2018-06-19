@@ -2,6 +2,7 @@
 div
   .text-center(v-if="beers.length === 0")
     loading-bars
+  .text-center.alert.alert-danger(v-else-if="loadError") {{loadError}}
   table-component(v-else :data="beers" sort-by="style" tableClass="table table-striped table-sm" countLabel="beer" filterNoResults="")
     table-column(show="title" label="Name")
     table-column(show="origin" label="City")
@@ -22,6 +23,7 @@ export default
 
   data: ->
     beers: []
+    loadError: null
 
   created: ->
     axios.get 'https://www.brewingcode.net/yardhouse.php?1'
@@ -36,8 +38,16 @@ export default
         .get()
         .filter (b) -> b.title
 
-      .catch (err) ->
+        if not @beers.length
+          @loadError = 'no beers found from yardhouse.com'
+
+      .catch (err) =>
         console.error 'error getting live view of beer list'
+        @loadError = "error loading beers from yardhouse.com: "
+        if err.response.data
+          @loadError += err.response.data
+        else
+          @loadError == "no response from server"
 
   methods:
     formatABV: (v) -> if (v is null or isNaN(v)) then 'Varies' else v.toFixed(1) + ' %'
