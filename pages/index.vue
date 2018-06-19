@@ -1,11 +1,13 @@
 <template lang="pug">
 div
-  table-component(:data="beers" sort-by="style" tableClass="table table-striped table-sm" countLabel="beer" filterNoResults="")
+  .text-center(v-if="beers.length === 0")
+    loading-bars
+  table-component(v-else :data="beers" sort-by="style" tableClass="table table-striped table-sm" countLabel="beer" filterNoResults="")
     table-column(show="title" label="Name")
     table-column(show="origin" label="City")
     table-column(show="style" label="Style")
     table-column(show="abv" label="ABV" v-bind:formatter="formatABV" data-type="numeric")
-  footer
+  footer.text-center
     a(href="https://github.com/brewingcode/yardhouse") github.com
 </template>
 
@@ -13,9 +15,10 @@ div
 import axios from 'axios'
 import cheerio from 'cheerio'
 import { TableComponent, TableColumn } from 'vue-table-component'
+import LoadingBars from '~/components/LoadingBars'
 
 export default
-  components: { TableComponent, TableColumn }
+  components: { TableComponent, TableColumn, LoadingBars }
 
   data: ->
     beers: []
