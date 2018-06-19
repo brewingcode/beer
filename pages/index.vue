@@ -38,6 +38,12 @@ export default
         .get()
         .filter (b) -> b.title
 
+        @beers.forEach (b) ->
+          if b.tags.length
+            b.title += ' ' + b.tags.map (tag) ->
+              "<span class=\"tag alert alert-success strong\">#{tag.toLowerCase()}</span>"
+            .join(' ')
+
         if not @beers.length
           @loadError = 'no beers found from yardhouse.com'
 
@@ -62,4 +68,8 @@ export default
   content: "↓"
 .table-component__filter__clear
   cursor: pointer
+.tag
+  border-radius: 99px
+  padding: 0 7px
+  font-size: 75%
 </style>
