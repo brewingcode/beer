@@ -8,8 +8,6 @@ div
     table-column(show="origin" label="City")
     table-column(show="style" label="Style")
     table-column(show="abv" label="ABV" v-bind:formatter="formatABV" data-type="numeric")
-  footer.text-center
-    a(href="https://github.com/brewingcode/yardhouse") github.com
 </template>
 
 <script lang="coffee">
