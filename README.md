@@ -9,12 +9,15 @@ https://brewingcode.github.io/yardhouse/
 ``` bash
 # initial setup
 git clone https://github.com/brewingcode/vue-table-component
+git clone https://github.com/buhrmi/nuxt-coffee
+
 cd vue-table-component
 yarn && yarn build && yarn link # tests fail, it's ok
-cd ..
-git clone https://github.com/brewingcode/yardhouse
-cd yardhouse
-yarn && yarn link vue-table-component && yarn dev
+cd ../nuxt-coffee
+yarn && yarn link
+
+cd ../yardhouse
+yarn && yarn link vue-table-component && yarn link nuxt-coffee
 
 # serve with hot reload at localhost:3000
 yarn dev

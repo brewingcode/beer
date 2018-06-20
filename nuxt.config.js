@@ -44,6 +44,12 @@ module.exports = {
         // })
       }
 
+      config.module.rules.push({
+        // enforce: 'pre', // Do we need this? Literally no one can know!
+        test: /\.coffee$/,
+        loader: 'coffee-loader'
+      });
+
       // set this to get `yarnk link` working
       config.resolve.symlinks = false;
     }
