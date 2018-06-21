@@ -1,0 +1,4 @@
+--exit
+--timeout 30000
+--compilers coffee:./test/coffee-babel
+--no-deprecation
