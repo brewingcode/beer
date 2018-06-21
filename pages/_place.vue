@@ -1,20 +1,11 @@
 <template lang="pug">
 .container-fluid
-  nav.navbar.navbar-expand-lg.navbar-light.bg-light
-    span.navbar-brand {{place}}
-    button.navbar-toggler(
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation")
-      span.navbar-toggler-icon
-
-    .collapse.navbar-collapse#navbarSupportedContent
-      ul.navbar-nav.mr-auto
-        nuxt-link.nav-item(v-for="v,k of places" :to="k" tag="li" :key="k" exact-active-class="active")
-          a.nav-link {{k}}
+  b-navbar(toggleable="md" variant="light")
+    b-navbar-toggle(target="nav_collapse")
+    b-navbar-brand(href="#") {{place}}
+    b-collapse#nav_collapse(is-nav)
+      b-navbar-nav
+        b-nav-item(v-for="v,k of places" :to="k" :key="k") {{k}}
   beer-list(:getBeers="getBeers")
   footer.text-center
     a(href="https://github.com/brewingcode/yardhouse") github.com
