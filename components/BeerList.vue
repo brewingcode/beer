@@ -11,12 +11,7 @@ div
 </template>
 
 <script lang="coffee">
-import { TableComponent, TableColumn } from 'vue-table-component'
-import LoadingBars from '~/components/LoadingBars'
-
 export default
-  components: { TableComponent, TableColumn, LoadingBars }
-
   data: ->
     beers: []
     loadError: null

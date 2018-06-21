@@ -55,4 +55,7 @@ module.exports = {
     }
   },
   ...routerBase,
+  plugins: [
+    { src: '~/plugins/components.coffee', ssr: true }
+  ],
 }
