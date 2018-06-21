@@ -2,7 +2,7 @@ import axios from 'axios'
 import cheerio from 'cheerio'
 
 export default ->
-  axios.get 'https://www.brewingcode.net/yardhouse.php?1'
+  axios.get 'https://www.brewingcode.net/beerproxy.php?yardhouse'
     .then (res) =>
       $ = cheerio.load(res.data)
 
@@ -26,7 +26,7 @@ export default ->
 
     .catch (err) =>
       console.error err
-      message = "error loading beers from yardhouse.com: "
+      message = "error loading beers for yardhouse: "
       if err.response
         message += err.response.data
       else
