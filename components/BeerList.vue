@@ -1,8 +1,8 @@
 <template lang="pug">
 div
-  .text-center(v-if="beers.length === 0")
+  .text-center.alert.alert-danger(v-if="loadError") {{loadError}}
+  .text-center(v-else-if="beers.length === 0")
     loading-bars
-  .text-center.alert.alert-danger(v-else-if="loadError") {{loadError}}
   table-component(v-else :data="beers" sort-by="style" tableClass="table table-striped table-sm" countLabel="beer" filterNoResults="")
     table-column(show="title" label="Name")
     table-column(show="origin" label="City")
@@ -27,7 +27,11 @@ export default
       required: true
 
   created: ->
-    @getBeers(this)
+    @getBeers()
+      .then (beers) =>
+        @beers = beers
+      .catch (err) =>
+        @loadError = err.message
 
   methods:
     formatABV: (v) -> if (v is null or isNaN(v)) then 'Varies' else v.toFixed(1) + ' %'
