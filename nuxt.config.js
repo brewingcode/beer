@@ -1,10 +1,15 @@
 const routerBase = (function() {
-  if (process.env.ROUTER_BASE) {
-    return { router: { base: process.env.ROUTER_BASE } };
-  }
-  else {
-    return {};
+  const base = {
+    router: {
+      middleware: 'default-index',
+    },
   };
+
+  if (process.env.ROUTER_BASE) {
+    base.router.base = process.env.ROUTER_BASE;
+  }
+
+  return base;
 })();
 
 module.exports = {
