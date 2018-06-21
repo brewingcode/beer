@@ -5,7 +5,7 @@ div
     loading-bars
   table-component(v-else :data="beers" sort-by="style" tableClass="table table-striped table-sm" countLabel="beer" filterNoResults="")
     table-column(show="title" label="Name")
-    table-column(show="origin" label="City")
+    table-column(show="origin" label="From")
     table-column(show="style" label="Style")
     table-column(show="abv" label="ABV" v-bind:formatter="formatABV" data-type="numeric")
 </template>
