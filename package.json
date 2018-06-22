@@ -1,7 +1,7 @@
 {
-  "name": "yardhouse",
+  "name": "beer",
   "version": "1.0.0",
-  "description": "A better listing of Yard House beers",
+  "description": "A listing of local beer",
   "author": "Alex <alex@brewingcode.net>",
   "private": true,
   "scripts": {

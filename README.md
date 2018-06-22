@@ -1,22 +1,21 @@
-# yardhouse
+# beer
 
-> A better listing of Yard House beers
+> A more lightweight listing of beers in the area
 
-https://brewingcode.github.io/yardhouse/
+https://brewingcode.github.io/beer/
 
 ## Build Setup
 
 ``` bash
 # initial setup
+git clone https://github.com/brewingcode/beer
 git clone https://github.com/brewingcode/vue-table-component
 git clone https://github.com/buhrmi/nuxt-coffee
-
 cd vue-table-component
 yarn && yarn build && yarn link # tests fail, it's ok
 cd ../nuxt-coffee
 yarn && yarn link
-
-cd ../yardhouse
+cd ../beer
 yarn && yarn link vue-table-component && yarn link nuxt-coffee
 
 # serve with hot reload at localhost:3000

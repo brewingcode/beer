@@ -6,7 +6,7 @@
 die() { echo "error: $@" >&2; exit 1; }
 cd "$(dirname "$0")"
 head="$(git rev-parse --short HEAD)"
-ROUTER_BASE=/yardhouse/ yarn generate || die "failed to generate"
+ROUTER_BASE=/beer/ yarn generate || die "failed to generate"
 git checkout gh-pages || die "checkout failed, repo is probably dirty"
 rsync -a dist/ . || die "rsync failed"
 [[ -n "$(git status -suno)" ]] || die "generated site has no changes"
