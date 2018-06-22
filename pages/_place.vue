@@ -16,12 +16,14 @@ import yardhouse from '~/lib/yardhouse.coffee'
 import pinebox from '~/lib/pinebox.coffee'
 import brouwers from '~/lib/brouwers.coffee'
 import chucksg from '~/lib/chucks-greenwood.coffee'
+import chuckscd from '~/lib/chucks-cd.coffee'
 
 places = {
   yardhouse
   pinebox
   brouwers
   'chucks-greenwood': chucksg
+  'chucks-cd': chuckscd
 }
 
 export default
