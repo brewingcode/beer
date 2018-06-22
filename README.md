@@ -1,6 +1,6 @@
 # beer
 
-> A more lightweight listing of beers in the area
+> A listing of local places with beer
 
 https://brewingcode.github.io/beer/
 

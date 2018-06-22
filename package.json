@@ -1,7 +1,7 @@
 {
   "name": "beer",
   "version": "1.0.0",
-  "description": "A listing of local beer",
+  "description": "A listing of local places with beer",
   "author": "Alex <alex@brewingcode.net>",
   "private": true,
   "scripts": {
