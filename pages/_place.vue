@@ -1,6 +1,6 @@
 <template lang="pug">
 .container-fluid
-  b-navbar(toggleable="sm" variant="light")
+  b-navbar(toggleable="md" variant="light")
     b-navbar-toggle(target="nav_collapse")
     b-navbar-brand(href="#") Beer
     b-collapse#nav_collapse(is-nav)
