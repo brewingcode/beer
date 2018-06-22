@@ -8,30 +8,48 @@ export default ->
       section = ''
       type = 'Beer'
 
-      $('.entry-content > *').map ->
-        if $('.item', this)
+      $('.entry-content').children().map ->
+        if this.tagName is 'p' and $('.item', this)
           $('.price', this).remove()
           # an individual beer
-          text = $(this).text()
+          text = $(this).text().trim()
           re = ///
             ^(.*?)
             \(
             ([\d\.]+)
-            %\)
+            \s*%\)
             (.*)
           ///
           if m = text.match(re)
-            city = if m[2] then "#{m[2]}, " else ''
+            from = if m[3] and section
+              "#{m[3]}, #{section}"
+            else if m[3]
+              m[3]
+            else
+              ''
+
             return
               title: m[1]
               tags: []
               style: type
               abv: parseFloat(m[2])
-              origin: "#{city}#{m[3]}"
-        else if $('.sectionName', this)
-          text = $(this).text()
+              origin: from
+
+          else if text and not /\d+\/\d+\/\d+/.test(text)
+            return
+              title: text
+              tags: []
+              style: type
+              abv: null
+              origin: null
+          else
+            console.warn 'parse failure:', text
+
+        else
+          text = $(this).text().trim()
           if /^cider/i.test(text)
             type = 'Cider'
+            section = ''
           else if text.length < 15
             section = text
           else
@@ -40,8 +58,7 @@ export default ->
         # return a valid object only on beer rows (see above)
         return null
       .get()
-      .filter (b) ->
-        b.title
+      .filter (b) -> b
 
     .catch (err) =>
       console.error err

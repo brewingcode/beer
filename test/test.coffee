@@ -18,4 +18,4 @@ describe 'pinebox', ->
 describe 'brouwers', ->
   it 'should return at least 50 beers', ->
     Brouwers().then (beers) ->
-      beers.length.should.be.above 50
+      beers.length.should.be.above 70
