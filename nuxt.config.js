@@ -65,4 +65,11 @@ module.exports = {
   modules: [
     'bootstrap-vue/nuxt',
   ],
+  generate: {
+    routes: [
+      '/yardhouse',
+      '/pinebox',
+      '/brouwers',
+    ],
+  },
 }

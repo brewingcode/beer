@@ -5,7 +5,7 @@
     b-navbar-brand(href="#") Beer
     b-collapse#nav_collapse(is-nav)
       b-navbar-nav
-        b-nav-item(v-for="v,k of places" :to="k" :key="k") {{k}}
+        b-nav-item(v-for="v,k of places" :to="'/'+k" :key="k") {{k}}
   beer-list(:getBeers="getBeers")
   footer.text-center
     a(href="https://github.com/brewingcode/beer") github.com
