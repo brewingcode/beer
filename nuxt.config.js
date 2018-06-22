@@ -1,10 +1,15 @@
 const routerBase = (function() {
-  if (process.env.ROUTER_BASE) {
-    return { router: { base: process.env.ROUTER_BASE } };
-  }
-  else {
-    return {};
+  const base = {
+    router: {
+      middleware: 'default-index',
+    },
   };
+
+  if (process.env.ROUTER_BASE) {
+    base.router.base = process.env.ROUTER_BASE;
+  }
+
+  return base;
 })();
 
 module.exports = {
@@ -20,8 +25,7 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css' }
-    ]
+    ],
   },
   /*
   ** Customize the progress bar color
@@ -44,9 +48,21 @@ module.exports = {
         // })
       }
 
+      config.module.rules.push({
+        // enforce: 'pre', // Do we need this? Literally no one can know!
+        test: /\.coffee$/,
+        loader: 'coffee-loader'
+      });
+
       // set this to get `yarnk link` working
       config.resolve.symlinks = false;
     }
   },
   ...routerBase,
+  plugins: [
+    { src: '~/plugins/components.coffee', ssr: true }
+  ],
+  modules: [
+    'bootstrap-vue/nuxt',
+  ],
 }
