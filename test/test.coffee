@@ -10,6 +10,6 @@ describe 'yardhouse', ->
       beers.length.should.be.above 100
 
 describe 'pinebox', ->
-  it 'should return a hundred or so beers', ->
+  it 'should return at least 25 beers', ->
     Pinebox().then (beers) ->
-      beers.length.should.be.above 15
+      beers.length.should.be.above 25
