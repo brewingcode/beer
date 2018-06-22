@@ -8,7 +8,7 @@
         b-nav-item(v-for="v,k of places" :to="'/'+k" :key="k") {{k}}
   beer-list(:getBeers="getBeers")
   footer.text-center
-    a(href="https://github.com/brewingcode/beer") github.com
+    a(href="https://github.com/brewingcode/beer") code on github.com
 </template>
 
 <script lang="coffee">
