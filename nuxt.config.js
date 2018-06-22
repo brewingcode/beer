@@ -70,6 +70,8 @@ module.exports = {
       '/yardhouse',
       '/pinebox',
       '/brouwers',
+      '/chucks-greenwood',
+      '/chucks-cd',
     ],
   },
 }
