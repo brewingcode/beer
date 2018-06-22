@@ -43,8 +43,6 @@ export default ->
               style: type
               abv: null
               origin: null
-          else
-            console.warn 'parse failure:', text
 
         else
           text = $(this).text().trim()
