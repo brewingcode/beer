@@ -1,6 +1,6 @@
 <template lang="pug">
 .container-fluid
-  b-navbar(toggleable="sm" variant="light")
+  b-navbar(toggleable="md" variant="light")
     b-navbar-toggle(target="nav_collapse")
     b-navbar-brand(href="#") Beer
     b-collapse#nav_collapse(is-nav)
@@ -15,11 +15,15 @@
 import yardhouse from '~/lib/yardhouse.coffee'
 import pinebox from '~/lib/pinebox.coffee'
 import brouwers from '~/lib/brouwers.coffee'
+import chucksg from '~/lib/chucks-greenwood.coffee'
+import chuckscd from '~/lib/chucks-cd.coffee'
 
 places = {
   yardhouse
   pinebox
   brouwers
+  'chucks-greenwood': chucksg
+  'chucks-cd': chuckscd
 }
 
 export default
