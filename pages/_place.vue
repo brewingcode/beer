@@ -14,10 +14,12 @@
 <script lang="coffee">
 import yardhouse from '~/lib/yardhouse.coffee'
 import pinebox from '~/lib/pinebox.coffee'
+import brouwers from '~/lib/brouwers.coffee'
 
 places = {
   yardhouse
   pinebox
+  brouwers
 }
 
 export default
