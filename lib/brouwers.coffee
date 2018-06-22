@@ -1,5 +1,6 @@
 import axios from 'axios'
 import cheerio from 'cheerio'
+import error from './error.coffee'
 
 export default ->
   axios.get 'https://www.brewingcode.net/beerproxy.php?brouwers'
@@ -60,11 +61,4 @@ export default ->
       .get()
       .filter (b) -> b
 
-    .catch (err) =>
-      console.error err
-      message = "error loading beers for brouwers: "
-      if err.response
-        message += err.response.data
-      else
-        message += err.message
-      throw new Error message
+    .catch error

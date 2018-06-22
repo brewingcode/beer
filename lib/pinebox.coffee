@@ -1,5 +1,6 @@
 import axios from 'axios'
 import cheerio from 'cheerio'
+import error from './error.coffee'
 
 export default ->
   axios.get 'https://www.brewingcode.net/beerproxy.php?pinebox'
@@ -19,11 +20,4 @@ export default ->
 
       return beers
 
-    .catch (err) =>
-      console.error err
-      message = "error loading beers for pinebox: "
-      if err.response
-        message += err.response.data
-      else
-        message += err.message
-      throw new Error message
+    .catch error
