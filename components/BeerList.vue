@@ -29,7 +29,7 @@ export default
         @loadError = err.message
 
   methods:
-    formatABV: (v) -> if (v is null or isNaN(v)) then 'Varies' else v.toFixed(1) + ' %'
+    formatABV: (v) -> if (v is null or isNaN(v)) then 'Varies' else v.toFixed(1) + '&nbsp;%'
 </script>
 
 <style lang="stylus">
