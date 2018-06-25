@@ -2,7 +2,8 @@
 .container-fluid
   b-navbar(toggleable="md" variant="light")
     b-navbar-toggle(target="nav_collapse")
-    b-navbar-brand(href="#") Beer
+    b-navbar-brand.d-md-none(href="#") {{$route.params.place}}
+    b-navbar-brand.d-none.d-md-inline-block(href="#") Beer
     b-collapse#nav_collapse(is-nav)
       b-navbar-nav
         b-nav-item(v-for="v,k of places" :to="'/'+k" :key="k") {{k}}
