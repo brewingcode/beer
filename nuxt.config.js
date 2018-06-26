@@ -12,6 +12,8 @@ const routerBase = (function() {
   return base;
 })();
 
+const { execSync } = require('child_process');
+
 module.exports = {
   /*
   ** Headers of the page
@@ -73,5 +75,8 @@ module.exports = {
       '/chucks-greenwood',
       '/chucks-cd',
     ],
+  },
+  env: {
+    gitrev: execSync('git rev-parse --short HEAD').toString().trim()
   },
 }

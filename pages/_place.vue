@@ -10,6 +10,8 @@
   beer-list(:getBeers="getBeers")
   footer.text-center
     a(href="https://github.com/brewingcode/beer") code on github.com
+    br
+    small: a(:href="'https://github.com/brewingcode/beer/commit/'+gitrev") {{gitrev}}
 </template>
 
 <script lang="coffee">
@@ -30,6 +32,7 @@ places = {
 export default
   data: ->
     places: places
+    gitrev: process.env.gitrev
   computed:
     getBeers: ->
       places[@$route.params.place]
@@ -42,4 +45,6 @@ export default
 <style lang="stylus">
 .navbar
   margin-bottom: 10px
+footer
+  margin-bottom: 1em
 </style>
