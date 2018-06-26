@@ -79,6 +79,6 @@ module.exports = {
   },
   env: {
     gitrev: execSync('git rev-parse --short HEAD').toString().trim(),
-    beerproxy: 'http://do.brewingcode.net:8080?'
+    beerproxy: 'https://do.brewingcode.net:8443?'
   },
 }
