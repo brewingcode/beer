@@ -9,8 +9,9 @@
         b-nav-item(v-for="v,k of places" :to="'/'+k" :key="k") {{k}}
   beer-list(:getBeers="getBeers")
   footer.text-center
-    a(href="https://github.com/brewingcode/beer") code on github.com
-    br
+    a(href="https://github.com/brewingcode/beer")
+      img.github(src="/github.svg")
+    span &nbsp;
     small: a(:href="'https://github.com/brewingcode/beer/commit/'+gitrev") {{gitrev}}
 </template>
 
@@ -47,4 +48,7 @@ export default
   margin-bottom: 10px
 footer
   margin-bottom: 1em
+  .github
+    width: 1.2em
+    margin-top: -2px
 </style>
