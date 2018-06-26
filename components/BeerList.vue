@@ -3,7 +3,7 @@ div
   .text-center.alert.alert-danger(v-if="loadError") {{loadError}}
   .text-center(v-else-if="beers.length === 0")
     loading-bars
-  table-component(v-else :data="beers" sort-by="style" tableClass="table table-striped table-sm" countLabel="beer" filterNoResults="")
+  table-component(v-else :data="beers" sort-by="abv" sort-order="desc" tableClass="table table-striped table-sm" countLabel="beer" filterNoResults="")
     table-column(show="title" label="Name")
     table-column(show="origin" label="From")
     table-column(show="style" label="Style")
@@ -24,6 +24,8 @@ export default
   created: ->
     @getBeers()
       .then (beers) =>
+        beers.forEach (b) ->
+          b.abv = null if isNaN(b.abv)
         @beers = beers
       .catch (err) =>
         @loadError = err.message
