@@ -10,7 +10,7 @@
   beer-list(:getBeers="getBeers")
   footer.text-center
     a(href="https://github.com/brewingcode/beer")
-      img.github(src="/github.svg")
+      img.github(src="~/assets/github.svg")
     span &nbsp;
     small: a(:href="'https://github.com/brewingcode/beer/commit/'+gitrev") {{gitrev}}
 </template>
