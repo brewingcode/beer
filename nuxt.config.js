@@ -74,6 +74,7 @@ module.exports = {
       '/brouwers',
       '/chucks-greenwood',
       '/chucks-cd',
+      '/rheinhaus',
     ],
   },
   env: {

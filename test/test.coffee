@@ -6,6 +6,7 @@ import Pinebox from '../lib/pinebox.coffee'
 import Brouwers from '../lib/brouwers.coffee'
 import ChucksGreen from '../lib/chucks-greenwood.coffee'
 import ChucksCD from '../lib/chucks-cd.coffee'
+import Rhein from '../lib/rheinhaus.coffee'
 
 describe 'yardhouse', ->
   it 'should return over a hundred beers', ->
@@ -30,4 +31,9 @@ describe 'chucks-greenwood', ->
 describe 'chucks-cd', ->
   it 'should return at least 40 beers', ->
     ChucksCD().then (beers) ->
+      beers.length.should.be.above 40
+
+describe 'rheinhaus', ->
+  it 'should return at least 40 beers', ->
+    Rhein().then (beers) ->
       beers.length.should.be.above 40

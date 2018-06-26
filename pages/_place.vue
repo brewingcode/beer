@@ -21,6 +21,7 @@ import pinebox from '~/lib/pinebox.coffee'
 import brouwers from '~/lib/brouwers.coffee'
 import chucksg from '~/lib/chucks-greenwood.coffee'
 import chuckscd from '~/lib/chucks-cd.coffee'
+import rheinhaus from '~/lib/rheinhaus.coffee'
 
 places = {
   yardhouse
@@ -28,6 +29,7 @@ places = {
   brouwers
   'chucks-greenwood': chucksg
   'chucks-cd': chuckscd
+  rheinhaus
 }
 
 export default
