@@ -3,7 +3,7 @@ import cheerio from 'cheerio'
 import error from './error.coffee'
 
 export default ->
-  axios.get 'https://www.brewingcode.net/beerproxy.php?chucks-cd'
+  axios.get process.env.beerproxy + 'chucks-cd'
     .then (res) =>
       $ = cheerio.load(res.data)
 

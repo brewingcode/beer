@@ -3,7 +3,7 @@ import cheerio from 'cheerio'
 import error from './error.coffee'
 
 export default ->
-  axios.get 'https://www.brewingcode.net/beerproxy.php?yardhouse'
+  axios.get process.env.beerproxy + 'yardhouse'
     .then (res) =>
       $ = cheerio.load(res.data)
 
