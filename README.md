@@ -18,6 +18,9 @@ yarn && yarn link
 cd ../beer
 yarn && yarn link vue-table-component && yarn link nuxt-coffee
 
+# write token to file in order to tell beerproxy server we are ok to CORS
+echo $TOKEN > auth.txt
+
 # serve with hot reload at localhost:3000
 yarn dev
 
