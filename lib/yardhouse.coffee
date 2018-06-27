@@ -1,28 +1,24 @@
-import axios from 'axios'
 import cheerio from 'cheerio'
-import error from './error.coffee'
+import get from './get.coffee'
 
 export default ->
-  axios.get process.env.beerproxy + 'yardhouse'
-    .then (res) =>
-      $ = cheerio.load(res.data)
+  get('yardhouse').then (res) ->
+    $ = cheerio.load(res.data)
 
-      beers = $('.menu_item').map ->
-        title: $('.beerlink', this).text()
-        tags: $('.beer_icons img', this).map(-> $(this).attr('alt')).get()
-        style: $('.beer-style', this).text()
-        abv: parseFloat $('.beer-abv', this).text().replace(/^ABV\s+/, '').replace(/[%\s]/g, '')
-        origin: $('.beer-origin', this).text()
-      .get()
-      .filter (b) ->
-        b.title
+    beers = $('.menu_item').map ->
+      title: $('.beerlink', this).text()
+      tags: $('.beer_icons img', this).map(-> $(this).attr('alt')).get()
+      style: $('.beer-style', this).text()
+      abv: parseFloat $('.beer-abv', this).text().replace(/^ABV\s+/, '').replace(/[%\s]/g, '')
+      origin: $('.beer-origin', this).text()
+    .get()
+    .filter (b) ->
+      b.title
 
-      beers.forEach (b) ->
-        if b.tags.length
-          b.title += ' ' + b.tags.map (tag) ->
-            "<span class=\"tag alert alert-success strong\">#{tag.toLowerCase()}</span>"
-          .join(' ')
+    beers.forEach (b) ->
+      if b.tags.length
+        b.title += ' ' + b.tags.map (tag) ->
+          "<span class=\"tag alert alert-success strong\">#{tag.toLowerCase()}</span>"
+        .join(' ')
 
-      return beers
-
-    .catch error
+    return beers
