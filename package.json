@@ -9,7 +9,7 @@
     "test": "mocha test/*.coffee",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate",
+    "generate": "NODE_ENV=production nuxt generate",
     "lint": "eslint --ext .js,.vue .",
     "precommit": "npm run lint",
     "generate:gh": "./gh-pages"

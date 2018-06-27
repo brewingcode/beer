@@ -1,3 +1,6 @@
+const { execSync } = require('child_process');
+const fs = require('fs');
+
 const routerBase = (function() {
   const base = {
     router: {
@@ -12,8 +15,17 @@ const routerBase = (function() {
   return base;
 })();
 
-const { execSync } = require('child_process');
-const fs = require('fs');
+const authToken = (function(){
+  if (process.env.NODE_ENV !== 'production') {
+    if (!fs.existsSync('auth.txt')) {
+      throw new Error('dev mode requires a cors token in auth.txt');
+    }
+    return fs.readFileSync('auth.txt', 'utf8');
+  }
+  else {
+    return null;
+  }
+})();
 
 module.exports = {
   /*
@@ -81,6 +93,6 @@ module.exports = {
   env: {
     gitrev: execSync('git rev-parse --short HEAD').toString().trim(),
     beerproxy: 'https://do.brewingcode.net:8443?',
-    auth: fs.readFileSync('auth.txt', 'utf8')
+    auth: authToken
   },
 }
