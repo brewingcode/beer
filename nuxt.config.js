@@ -13,6 +13,7 @@ const routerBase = (function() {
 })();
 
 const { execSync } = require('child_process');
+const fs = require('fs');
 
 module.exports = {
   /*
@@ -79,6 +80,7 @@ module.exports = {
   },
   env: {
     gitrev: execSync('git rev-parse --short HEAD').toString().trim(),
-    beerproxy: 'https://do.brewingcode.net:8443?'
+    beerproxy: 'https://do.brewingcode.net:8443?',
+    auth: fs.readFileSync('auth.txt', 'utf8')
   },
 }
