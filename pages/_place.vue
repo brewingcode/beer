@@ -22,6 +22,7 @@ import brouwers from '~/lib/brouwers.coffee'
 import chucksg from '~/lib/chucks-greenwood.coffee'
 import chuckscd from '~/lib/chucks-cd.coffee'
 import rheinhaus from '~/lib/rheinhaus.coffee'
+import elysian from '~/lib/elysian-downtown.coffee'
 
 places = {
   yardhouse
@@ -30,6 +31,7 @@ places = {
   'chucks-greenwood': chucksg
   'chucks-cd': chuckscd
   rheinhaus
+  elysian
 }
 
 export default
