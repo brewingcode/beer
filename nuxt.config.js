@@ -69,7 +69,7 @@ module.exports = {
         loader: 'coffee-loader'
       });
 
-      // set this to get `yarnk link` working
+      // set this to get `yarn link` working
       config.resolve.symlinks = false;
     }
   },

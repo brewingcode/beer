@@ -10,13 +10,10 @@ https://brewingcode.github.io/beer/
 # initial setup
 git clone https://github.com/brewingcode/beer
 git clone https://github.com/brewingcode/vue-table-component
-git clone https://github.com/buhrmi/nuxt-coffee
 cd vue-table-component
 yarn && yarn build && yarn link # tests fail, it's ok
-cd ../nuxt-coffee
-yarn && yarn link
 cd ../beer
-yarn && yarn link vue-table-component && yarn link nuxt-coffee
+yarn && yarn link vue-table-component
 
 # write token to file in order to tell beerproxy server we are ok to CORS
 echo $TOKEN > auth.txt
